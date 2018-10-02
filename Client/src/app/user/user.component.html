@@ -248,8 +248,8 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">Id</span>
         </div>
-        <input type="text" formControlName="id" class="form-control" placeholder="id" aria-label="id"
-          aria-describedby="basic-addon1" required>
+        <input type="text" formControlName="id" class="form-control" placeholder="id" aria-label="id" aria-describedby="basic-addon1"
+          required>
         <div *ngIf="getId.invalid && (getId.dirty || getId.touched)" class="alert alert-danger">
 
           <div *ngIf="getId.errors.required">
@@ -289,10 +289,64 @@
           <span class="input-group-text" id="basic-addon1">Phone</span>
         </div>
         <input type="text" [ngModel]="user.phone" readonly>
+      </div>
     </div>
   </div>
-</div>
   <div class="modal-footer">
     <button type="submit" class="btn btn-outline-dark" [disabled]="!getUserForm.valid" form="getUserForm">Submit</button>
   </div>
 </ng-template>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      First name
+    </div>
+    <div class="col-sm">
+      Last name
+    </div>
+    <div class="col-sm">
+      Address
+    </div>
+    <div class="col-sm">
+      Created at
+    </div>
+    <div class="col-sm">
+      Updated at
+    </div>
+    <div class="col-sm">
+      Phone
+    </div>
+    <div class="col-sm">
+      Actions
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+  </div>
+</div>

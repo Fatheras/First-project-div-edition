@@ -1,0 +1,53 @@
+<!-- <div class="col-md-6">
+  <h2> User Details</h2>
+  <button class="btn btn-danger" (click)="addUser()"> Add User</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td class="hidden"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button>
+        <button class="btn btn-danger" (click)="editUser(user)" style="margin-left: 20px;"> Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<div class="container">
+  <div class="row" *ngFor="let user of users">
+    <div class="col-sm">
+      {{user.firstName}}
+    </div>
+    <div class="col-sm">
+      {{user.lastName}}
+    </div>
+    <div class="col-sm">
+      {{user.address}}
+    </div>
+    <div class="col-sm">
+      {{user.createdAt | date}}
+    </div>
+    <div class="col-sm">
+      {{user.updatedAt | date}}
+    </div>
+    <div class="col-sm">
+      {{user.phone}}
+    </div>
+    <div class="col-sm">
+      <input routerLink="/edit-user"class="btn btn-primary actionButton" type="button" value="Edit">
+      <input routerLink="/delete-user" class="btn btn-primary actionButton" type="button" value="Delete">
+      <!-- <button routerLink="/delete-user">Go to sidekicks</button> -->
+    </div>
+  </div>
+</div>
