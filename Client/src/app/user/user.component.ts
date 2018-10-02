@@ -15,10 +15,6 @@ export class UserComponent implements OnInit {
   user: IUser;
   idToDelete: number;
   showUser: boolean;
-  /* @ViewChild('createModal') createModal: ElementRef;
-   @ViewChild('editModal') editModal: ElementRef;
-   @ViewChild('deleteModal') deleteModal: ElementRef;
-   @ViewChild('getUserModal') getUserModal: ElementRef; */
 
   createUserForm: FormGroup;
   editUserForm: FormGroup;
