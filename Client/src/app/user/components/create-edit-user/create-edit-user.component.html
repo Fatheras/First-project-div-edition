@@ -1,22 +1,68 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      {{user.firstName}}
+<form id="editUserForm" [formGroup]="editUserForm" (ngSubmit)="createEditUser()">
+  <input type="hidden" formControlName="id">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">First Name</span>
     </div>
-    <div class="col-sm">
-      {{user.lastName}}
-    </div>
-    <div class="col-sm">
-      {{user.address}}
-    </div>
-    <div class="col-sm">
-      {{user.createdAt | date}}
-    </div>
-    <div class="col-sm">
-      {{user.updatedAt | date}}
-    </div>
-    <div class="col-sm">
-      {{user.phone}}
+    <input type="text" formControlName="firstName" class="form-control" placeholder="First Name" aria-label="First Name"
+      aria-describedby="basic-addon1" required>
+    <div *ngIf="editFirstName.invalid && (editFirstName.dirty || editFirstName.touched)" class="alert alert-danger">
+
+      <div *ngIf="editFirstName.errors.required">
+        First Name is required. Please fill the field above.
+      </div>
+      <div *ngIf="editFirstName.errors.minlength">
+        First Name must be at least 2 characters long.
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Second Name</span>
+    </div>
+    <input type="text" formControlName="lastName" class="form-control" placeholder="Second Name" aria-label="Second Name"
+      aria-describedby="basic-addon1" required>
+    <div *ngIf="editLastName.invalid && (editLastName.dirty || editLastName.touched)" class="alert alert-danger">
+      <div *ngIf="editLastName.errors.required">
+        Second Name is required. Please fill the field above.
+      </div>
+      <div *ngIf="editLastName.errors.minlength">
+        Second Name must be at least 2 characters long.
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Address</span>
+    </div>
+    <input type="text" formControlName="address" class="form-control" placeholder="Address" aria-label="Address"
+      aria-describedby="basic-addon1" required>
+    <div *ngIf="editAddress.invalid && (editAddress.dirty || editAddress.touched)" class="alert alert-danger">
+      <div *ngIf="editAddress.errors.required">
+        Address is required. Please fill the field above.
+      </div>
+      <div *ngIf="editAddress.errors.minlength">
+        Address must be at least 5 characters long.
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Phone</span>
+    </div>
+    <input type="text" formControlName="phone" class="form-control" placeholder="Phone" aria-label="Phone"
+      aria-describedby="basic-addon1" required>
+    <div *ngIf="editPhone.invalid && (editPhone.dirty || editPhone.touched)" class="alert alert-danger">
+      <div *ngIf="editPhone.errors.required">
+        Phone number is required. Please fill the field above.
+      </div>
+      <div *ngIf="editPhone.errors.minlength">
+        Phone number must be at least 12 characters long.
+      </div>
+    </div>
+  </div>
+</form>
+<button type="submit" class="btn btn-outline-dark" [disabled]="!editUserForm.valid" form="editUserForm">Submit</button>

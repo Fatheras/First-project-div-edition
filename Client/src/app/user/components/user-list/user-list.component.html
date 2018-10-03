@@ -45,8 +45,8 @@
       {{user.phone}}
     </div>
     <div class="col-sm">
-      <input routerLink="/edit-user"class="btn btn-primary actionButton" type="button" value="Edit">
-      <input routerLink="/delete-user" class="btn btn-primary actionButton" type="button" value="Delete">
+      <input (click)="editUser(user)" class="btn btn-primary actionButton" type="button" value="Edit">
+      <input (click)="goDeleteUser(user.id)" class="btn btn-primary actionButton" type="button" value="Delete">
       <!-- <button routerLink="/delete-user">Go to sidekicks</button> -->
     </div>
   </div>
