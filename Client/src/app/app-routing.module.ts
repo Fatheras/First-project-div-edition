@@ -4,6 +4,7 @@ import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user/components/user-list/user-list.component';
 import { DeleteUserComponent } from './user/components/delete-user/delete-user.component';
 import { CreateEditUserComponent } from './user/components/create-edit-user/create-edit-user.component';
+import { GetUserComponent } from './user/components/get-user/get-user.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/users', pathMatch: 'full' },
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'users2', component: UserListComponent },
   { path: 'delete-user', component: DeleteUserComponent },
   { path: 'create-user', component: CreateEditUserComponent },
-  { path: 'edit-user', component: CreateEditUserComponent }
+  { path: 'edit-user', component: CreateEditUserComponent },
+  { path: 'get-user', component: GetUserComponent }
 
 ];
 

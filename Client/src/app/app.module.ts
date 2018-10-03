@@ -10,6 +10,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UserListComponent } from './user/components/user-list/user-list.component';
 import { DeleteUserComponent } from './user/components/delete-user/delete-user.component';
 import { CreateEditUserComponent } from './user/components/create-edit-user/create-edit-user.component';
+import { GetUserComponent } from './user/components/get-user/get-user.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CreateEditUserComponent } from './user/components/create-edit-user/crea
     UserComponent,
     UserListComponent,
     DeleteUserComponent,
-    CreateEditUserComponent
+    CreateEditUserComponent,
+    GetUserComponent
   ],
   imports: [
     BrowserModule,

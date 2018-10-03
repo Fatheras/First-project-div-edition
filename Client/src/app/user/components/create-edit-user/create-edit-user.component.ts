@@ -13,7 +13,7 @@ export class CreateEditUserComponent implements OnInit {
   user: any;
   editUserForm: FormGroup;
 
-  constructor(private userService: UserService, private router: ActivatedRoute) { }
+  constructor(private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getUser();
@@ -26,7 +26,7 @@ export class CreateEditUserComponent implements OnInit {
   get editPhone() { return this.editUserForm.get('phone'); }
 
   getUser(): void {
-    this.router.queryParams
+    this.route.queryParams
       .subscribe(params => {
         // tslint:disable-next-line:no-debugger
         debugger;
