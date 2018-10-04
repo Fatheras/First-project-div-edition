@@ -23,7 +23,7 @@ class LoggerService {
 
   getCommonLogger() {
     const fileLogger = new (winston.transports.File)({
-      filename: path.join('logs', 'common', 'log.log'),
+      filename: path.join('lib', 'logs', 'common', 'log.log'),
       handleExceptions: true,
       maxsize: fileSize,
       format: winston.format.combine(
