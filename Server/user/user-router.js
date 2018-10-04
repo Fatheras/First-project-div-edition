@@ -19,12 +19,12 @@ router.get('/:id', UserController.getUser);
 
 router.delete('/:id', UserController.deleteUser);
 
-router.post('/', checkParams.validateParamsJoi(joi.object().keys({
+router.post('/', /*checkParams.validateParamsJoi(joi.object().keys({
   firstName: joi.string().required(),
   lastName: joi.string(),
   address: joi.string(),
   phone: joi.string(),
-})),handleErrorAsync(UserController.createUser));
+})) ,*/handleErrorAsync(UserController.createUser));
 
 router.put('/:id', checkParams.validateSequelizeEntity(User), handleErrorAsync(UserController.updateUser));
 

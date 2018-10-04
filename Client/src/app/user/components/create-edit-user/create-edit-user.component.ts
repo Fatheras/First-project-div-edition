@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../shared/user.service';
 import { IUser } from '../../../models/User';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params, ParamMap } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -10,15 +10,17 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./create-edit-user.component.css']
 })
 export class CreateEditUserComponent implements OnInit {
-  user: any;
+  user: IUser;
+  id: number;
   editUserForm: FormGroup;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private route: ActivatedRoute) {
+    this.route.params.subscribe((params: ParamMap) => { this.id = +params['id']; });
+  }
 
   ngOnInit() {
     this.getUser();
     this.createEditUserForm();
-    this.UpdateFormFromParams();
   }
   get editFirstName() { return this.editUserForm.get('firstName'); }
   get editLastName() { return this.editUserForm.get('lastName'); }
@@ -26,12 +28,12 @@ export class CreateEditUserComponent implements OnInit {
   get editPhone() { return this.editUserForm.get('phone'); }
 
   getUser(): void {
-    this.route.queryParams
-      .subscribe(params => {
-        // tslint:disable-next-line:no-debugger
-        debugger;
-        this.user = params;
+    if (this.id > 0) {
+      this.userService.getUser(this.id).subscribe((response: IUser) => {
+        this.user = response;
+        this.UpdateFormFromParams();
       });
+    }
   }
 
   createEditUserForm() {
@@ -62,8 +64,6 @@ export class CreateEditUserComponent implements OnInit {
     }
   }
   createEditUser() {
-    // tslint:disable-next-line:no-debugger
-    debugger;
     const formUser = this.editUserForm.value;
     if (formUser.id > 0) {
       this.userService.editUser(formUser).subscribe(

@@ -23,27 +23,24 @@ export class UserListComponent implements OnInit {
     this.userService.getUsers()
       .subscribe((users: IUser[]) => { this.users = users; });
   }
-  editUser(user: IUser) {
-    // tslint:disable-next-line:no-debugger
-    debugger;
-    this.router.navigate(['/edit-user'], {
-      queryParams: {
-        id: user.id, firstName: user.firstName,
-        lastName: user.lastName,
-        address: user.address,
-        createdAt: user.createdAt,
-        updatedAt: user.updatedAt,
-        phone: user.phone
-      }, queryParamsHandling: 'merge'
-    });
+  goEditUser(user: IUser): void {
+
+    // this.router.navigate(['/edit-user'], {
+    //   queryParams: {
+    //     id: user.id, firstName: user.firstName,
+    //     lastName: user.lastName,
+    //     address: user.address,
+    //     createdAt: user.createdAt,
+    //     updatedAt: user.updatedAt,
+    //     phone: user.phone
+    //   }, queryParamsHandling: 'merge'
+    // });
+    this.router.navigate(['edit-user', user.id]);
   }
 
-  goDeleteUser(id: IUser): void {
+  goDeleteUser(user: IUser): void {
     // this.router.navigate(['/delete-user'], {queryParams: {id: user.id}, queryParamsHandling: 'merge'}  );
-    this.router.navigate(['delete-user'], { queryParams: { id: id }, queryParamsHandling: 'merge' });
-
-    // tslint:disable-next-line:no-debugger
-        debugger;
+    this.router.navigate(['delete-user', user.id]);
   }
 }
 

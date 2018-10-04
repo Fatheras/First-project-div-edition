@@ -89,15 +89,13 @@ export class UserComponent implements OnInit {
   }
 
   getUser(): void {
-    // tslint:disable-next-line:no-debugger
-    debugger;
     this.userService.getUser(this.getUserForm.value.id)
-       .subscribe((user: IUser) => {
-         this.user = user;
-         this.showUser = true;
-         console.log(this.user);
-        });
-   }
+      .subscribe((user: IUser) => {
+        this.user = user;
+        this.showUser = true;
+        console.log(this.user);
+      });
+  }
 
   editUser(): void {
     const user = this.editUserForm.value;
@@ -109,8 +107,6 @@ export class UserComponent implements OnInit {
   }
 
   createUser(): void {
-    // tslint:disable-next-line:no-debugger
-    debugger;
     const user = this.createUserForm.value;
     this.userService.createUser(user).subscribe(
       () => {
