@@ -9,7 +9,7 @@ module.exports = class SeederService {
         console.log(stdout);
         console.log('runSeeders.stderr:');
         console.log(stderr);
-        console.log('runSeeders sucsessfully finished');
+        console.log('runSeeders successfully finished');
         return true;
     }
 }

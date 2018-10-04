@@ -8,7 +8,7 @@ module.exports = class DBService {
             await db.authenticate();
             await db.sync();
             await MigrationService.runMigrations();
-            //await SeederService.runSeeders();
+            await SeederService.runSeeders();
         }
         catch (err) {
             logger.error('DB init ERROR');
