@@ -11,10 +11,8 @@ const routes: Routes = [
   { path: 'users', component: UserComponent },
   { path: 'users2', component: UserListComponent },
   { path: 'delete-user/:id', component: DeleteUserComponent },
-  { path: 'delete-user', component: DeleteUserComponent },
   { path: 'create-user', component: CreateEditUserComponent },
   { path: 'edit-user/:id', component: CreateEditUserComponent },
-  { path: 'edit-user', component: CreateEditUserComponent },
   { path: 'get-user', component: GetUserComponent }
 
 ];
