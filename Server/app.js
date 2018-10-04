@@ -1,7 +1,7 @@
 const http = require('http');
 
 const DBService = require('./lib/db/services/db-service');
-const app = require('./lib/server/models/exppress-application');
+const app = require('./lib/server/models/express-application');
 const loggers = require('./lib/tools/loggers');
 
 loggers.initLoggers();
