@@ -9,7 +9,7 @@ let myFormat = winston.format.printf(info => {
 });
 
 class LoggerService {
-  constructor(){
+  constructor() {
     this.commonLogger = null;
   }
 
@@ -17,32 +17,28 @@ class LoggerService {
     this.commonLogger = this.getCommonLogger();
   }
 
-  initGlobalLogger(){
+  initGlobalLogger() {
     global.logger = this.commonLogger;
   }
 
-  getCommonLogger(){
-    console.log(winston.version);
-    console.log(path.join(process.cwd(),"logs", "common", "log.log"));
-    console.log(`${__dirname}`);
-    
-    const fileLogger = new(winston.transports.File)({
+  getCommonLogger() {
+    const fileLogger = new (winston.transports.File)({
       filename: path.join('logs', 'common', 'log.log'),
       handleExceptions: true,
       maxsize: fileSize,
       format: winston.format.combine(
         winston.format.timestamp(),
         myFormat
-      ) 
+      )
     });
 
     const result = winston.createLogger({
       transports: [
-        new(winston.transports.Console)({
+        new (winston.transports.Console)({
           format: winston.format.combine(
             winston.format.colorize(),
             winston.format.timestamp(),
-           myFormat
+            myFormat
           )
         }),
         fileLogger
@@ -53,4 +49,4 @@ class LoggerService {
   }
 }
 
-module.exports =  new LoggerService();
+module.exports = new LoggerService();

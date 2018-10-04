@@ -42,6 +42,5 @@ module.exports = {
             })
             return result;
         }
-
     }
 }
