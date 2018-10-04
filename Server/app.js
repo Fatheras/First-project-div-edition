@@ -17,7 +17,7 @@ const initApp = async () => {
     })
   } 
   catch (error) {
-    logger.info(error);
+    logger.error(error);
   }
 }
 

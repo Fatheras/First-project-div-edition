@@ -11,16 +11,5 @@ module.exports = class MigrationService {
         console.log(stderr);
         console.log('Migrations sucsessfully finished');
         return true;
-    }
-
-    static async runSeeders(){
-        const { stdout, stderr } = await execP('npm run seeders');
-        console.log('runSeeders.stdout:');
-        console.log(stdout);
-        console.log('runSeeders.stderr:');
-        console.log(stderr);
-        console.log('runSeeders sucsessfully finished');
-        return true;
-    }
-    
+    }    
 }
